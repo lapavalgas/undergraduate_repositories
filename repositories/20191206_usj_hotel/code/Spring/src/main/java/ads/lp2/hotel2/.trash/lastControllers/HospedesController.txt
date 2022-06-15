@@ -1,0 +1,67 @@
+package ads.lp2.hotel2.model.hospede;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.view.RedirectView;
+
+@Controller
+@RequestMapping("/hospedes")
+public class HospedesController {
+
+  @Autowired
+  private HospedeRepository hospedeRepository;
+
+  @PostMapping(path = "/create")
+  public @ResponseBody String createHospede(@RequestParam String name, @RequestParam String cpf) {
+    hospedeRepository.save(new Hospede(name, cpf));
+    return (">> Hospede cadastrado com sucesso!");
+  }
+
+  @PostMapping(path = "/read") // cpf
+  public @ResponseBody RedirectView readHospede(Model model, @RequestParam String cpf) {
+    model.addAttribute("hospede", hospedeRepository.findByCpf(cpf));
+    return new RedirectView("index");
+  }
+
+  @PostMapping(path = "/readId") // id
+  public @ResponseBody RedirectView readHospede(Model model, @RequestParam Long id) {
+    model.addAttribute("hospede", hospedeRepository.findById(id));
+    return new RedirectView("index");
+  }
+
+  @PostMapping(path = "/update")
+  public @ResponseBody RedirectView updateHospede(@RequestParam String name, @RequestParam String cpf) {
+    Hospede hospede = hospedeRepository.findByCpf(cpf);
+    hospede.setNome(name);
+    hospede.setCpf(cpf);
+    hospedeRepository.save(hospede);
+    return new RedirectView("index");
+  }
+
+  @PostMapping(path = "/delete")
+  public @ResponseBody RedirectView deleteHospede(String cpf) {
+    Hospede hospede = hospedeRepository.findByCpf(cpf);
+    hospedeRepository.delete(hospede);
+    return new RedirectView("index");
+  }
+
+  @PostMapping(path = "/all")
+  public @ResponseBody RedirectView Hospede(Model model) {
+    model.addAttribute("hospedes", hospedeRepository.findAll());
+    return new RedirectView("index");
+  }
+
+  @GetMapping(value = "/cpf") // cpf
+  public @ResponseBody List<Hospede> readHospede() {
+    return hospedeRepository.findAll();
+  }
+
+}

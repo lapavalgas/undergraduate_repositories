@@ -1,0 +1,56 @@
+p {
+    margin: 0px;
+    padding: 0px;
+}
+
+.main {
+    margin: 3em auto;
+    width: 40%;
+}
+
+.title {
+    margin: 1em;
+    margin-left: 2em;
+}
+
+.numbers {
+    margin: 1em;
+}
+
+.operadores {
+    margin: 1em;
+}
+
+.result {
+    width: 80%;
+    margin: 1em;
+}
+
+.title>h1 {
+    padding-left: 1em;
+}
+
+.num1 {
+    display: flex;
+    margin: 1em;
+}
+
+#num1,
+#num2 {
+    margin-left: 1em;
+}
+
+.num2 {
+    display: flex;
+    margin: 1em;
+}
+
+.result {
+    margin: 0.6em;
+    padding: 0.05em;
+}
+
+#result {
+    margin-top: 1em;
+    width: 100%;
+}

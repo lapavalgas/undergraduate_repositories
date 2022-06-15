@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>CÁLCULADORA</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="./script.js"></script>
+</head>
+
+<body>
+    <section class="calc">
+        <div class="line0">
+            <div id="results"></div>
+        </div>
+        <div class="ops">
+            <div class="line1">
+                <span class="column1">
+                <button type="button" disabled>(</button>
+                </span>
+                <span class="column2">
+                <button type="button" disabled>)</button>
+                </span>
+                <span class="column3">
+                <button type="button" disabled>%</button>
+                </span>
+                <span id="operador" class="column4">
+                <button class="AC" onclick="userClick('ac')" type="button">AC</button>
+                </span>
+            </div>
+            <div class="line2">
+                <span class="column1">
+                <button onclick="userClick(7)" type="button">7</button>
+                </span>
+                <span class="column2">
+                <button onclick="userClick(8)" type="button">8</button>
+                </span>
+                <span class="column3">
+                <button onclick="userClick(9)" type="button">9</button>
+                </span>
+                <span id="operador" class="column4">
+                <button class="operar" onclick="userClick('/')" type="button">/</button>
+                </span>
+            </div>
+            <div class="line3">
+                <span class="column1">
+                <button onclick="userClick(4)" type="button">4</button>
+                </span>
+                <span class="column2">
+                <button onclick="userClick(5)" type="button">5</button>
+                </span>
+                <span class="column3">
+                <button onclick="userClick(6)" type="button">6</button>
+                </span>
+                <span id="operador" class="column4">
+                <button class="operar" onclick="userClick('*')" type="button">*</button>
+                </span>
+            </div>
+            <div class="line4">
+                <span class="column1">
+                <button onclick="userClick(1)" type="button">1</button>
+                </span>
+                <span class="column2">
+                <button onclick="userClick(2)" type="button">2</button>
+                </span>
+                <span class="column3">
+                <button onclick="userClick(3)" type="button">3</button>
+                </span>
+                <span id="operador" class="column4">
+                <button class="operar" onclick="userClick('-')" type="button">-</button>
+                </span>
+            </div>
+            <div class="line4">
+                <span class="column1">
+                <button onclick="userClick(0)" type="button">0</button>
+                </span>
+                <span class="column2">
+                <button onclick="userClick('.')" type="button" disabled>.</button>
+                </span>
+                <span class="column3">
+                <button class="calcular" onclick="userClick('=')" type="button">=</button>
+                </span>
+                <span id="operador" class="column4">
+                <button class="operar" onclick="userClick('+')" type="button">+</button>
+                </span>
+            </div>
+    </section>
+</body>
+
+</html>

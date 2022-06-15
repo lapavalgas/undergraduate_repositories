@@ -1,0 +1,26 @@
+.page {
+  max-width: 1024px;
+  margin: 0.5em auto;
+}
+
+.header {
+  padding: 0.5em;
+  margin-bottom: 1.5em;
+}
+
+.controller {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main {
+  margin: auto;
+}
+
+.list-group {
+  margin-bottom: 1em;
+}
+
+.list-group h4 {
+  padding-top: 10px;
+}

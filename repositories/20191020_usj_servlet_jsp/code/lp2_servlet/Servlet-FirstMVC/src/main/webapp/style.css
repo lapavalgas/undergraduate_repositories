@@ -1,0 +1,140 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+
+
+body {
+  background-color: lightslategray;
+  margin: 0;
+  padding: 0;
+}
+
+.UI {
+  display: grid;
+  grid-template: "user user" "schedule task";
+  grid-template-columns: 2fr 6fr;
+  grid-template-rows: 2fr 8fr;
+}
+
+.title {
+  margin: 3px;
+  margin-left: 1em;
+}
+
+.user {
+  grid-area: user;
+  width: 100%;
+  margin: 0.5em;
+  padding: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed black;
+}
+
+.user__name {
+  height: 2em;
+  min-width: 8em;
+  margin-left: 3em;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.user__schedules {
+  margin-right: 8em;
+  display: flex;
+}
+.userAttributes {
+  display: flex;
+}
+input.logout {
+  height: 100%;
+}
+
+.schedule__card, schedule__title {
+  width: 10em;
+  padding: 0px;
+  height: 2em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  border: 1px solid;
+}
+
+.theSchedule {
+  margin: 0.5em;
+  grid-area: schedule;
+}
+
+.task__card {
+  margin: 3px auto;
+  border: 1px dashed;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icons {
+  margin-top: 1.65em;
+  margin-right: 0.25em;
+}
+
+.iconsImg {
+  margin-right: 1em;
+}
+
+.task {
+  margin: 0.5em;
+  grid-area: task;
+}
+
+.task__description {
+  margin: 0.5em;
+}
+body,
+html {
+  background-color: lightslategray;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.page {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0px;
+}
+
+body {
+  background-color: lightslategray;
+}
+
+.authJSP {
+  width: 20%;
+  padding: 10px;
+  margin: auto;
+}
+
+.authentication {
+  margin: 3px auto;
+  padding: 3px;
+}
+
+.newUSer {
+  margin: 3px auto;
+  padding: 3px;
+}
+
+.inputText {
+  width: 100%;
+  margin-bottom: 3px;
+}
+
+.inputBtn {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}

@@ -1,0 +1,55 @@
+.calc {
+    width: 335px;
+    height: 480px;
+    margin: auto;
+    background: rgb(165, 165, 172);
+    border: solid 1px rgb(0, 0, 0);
+    font-weight: bolder;
+    color: aliceblue;
+    vertical-align: top;
+}
+
+.line0 {
+    overflow: hidden;
+    width: 95%;
+    margin: auto;
+    vertical-align: top;
+}
+
+#results {
+    margin-top: 10px;
+    border: dotted 2px;
+    padding: 20px;
+    height: 15px;
+    vertical-align: top;
+}
+
+{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+    background: red;
+}
+
+button {
+    margin: 10px;
+    padding: 10px;
+    height: 60px;
+    width: 60px;
+    background: rgb(214, 214, 214);
+    font-weight: bolder;
+}
+
+.operar {
+    background: rgb(140, 140, 160);
+}
+
+.calcular {
+    background: rgb(216, 219, 174);
+}
+
+.AC {
+    background: rgb(216, 219, 174);
+}

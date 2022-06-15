@@ -1,0 +1,36 @@
+package ads.lp2.hotel2.model.reserva;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
+@Controller
+@RequestMapping("/reserva")
+public class ReservaResource {
+
+    @Autowired
+    ReservaRepository ReservaRepository;
+
+    @GetMapping("/{id}")
+    public Reserva findReservaById(@PathVariable Long id) {
+        return ReservaRepository.findById(id).get();
+    }
+
+    @GetMapping
+    public List<Reserva> findAllReservas() {
+        return ReservaRepository.findAll();
+    }
+
+    @PostMapping
+    public Reserva saveReserva(@RequestBody Reserva reserva) {
+        return ReservaRepository.save(reserva);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteReserva(@PathVariable Long id) {
+        ReservaRepository.deleteById(id);
+    }
+
+}

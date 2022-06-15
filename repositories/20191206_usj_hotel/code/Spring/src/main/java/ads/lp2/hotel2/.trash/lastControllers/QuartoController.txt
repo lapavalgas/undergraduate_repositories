@@ -1,0 +1,76 @@
+package ads.lp2.hotel2.model.quarto;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.view.RedirectView;
+
+@Controller
+@RequestMapping("/quarto")
+public class QuartoController {
+
+    @Autowired
+    private QuartoRepository quartoRepository;
+
+    @PostMapping(path = "/create")
+    public @ResponseBody RedirectView createQuarto(@RequestParam int numero) {
+        quartoRepository.save(new Quarto(numero));
+
+        System.out.println("--=> create: " + new Quarto(numero));
+
+        return new RedirectView("index");
+    }
+
+    @PostMapping(path = "/read") // numeroQuarto
+    public @ResponseBody RedirectView readQuarto(Model model, @RequestParam int numero) {
+        model.addAttribute("quarto", quartoRepository.findByNumeroQuarto(numero));
+
+        System.out.println("--=> read: " + model.getAttribute("quarto"));
+
+        return new RedirectView("index");
+    }
+    
+    @PostMapping(path = "/readId") // numeroId
+    public @ResponseBody RedirectView readQuarto(Model model, @RequestParam Long numero) {
+        model.addAttribute("quarto", quartoRepository.findById(numero));
+
+        System.out.println("--=> read: " + model.getAttribute("quarto"));
+
+        return new RedirectView("index");
+    }
+
+    @PostMapping(path = "/update")
+    public @ResponseBody RedirectView updateQuarto(@RequestParam int numeroQuarto, @RequestParam int novoNumero) {
+        Quarto quarto = quartoRepository.findByNumeroQuarto(numeroQuarto);
+        quarto.setNumeroQuarto(novoNumero);
+        quartoRepository.save(quarto);
+
+        System.out.println("--=> update: " + quarto);
+
+        return new RedirectView("index");
+    }
+
+    @PostMapping(path = "/delete")
+    public @ResponseBody RedirectView deleteQuarto(int numero) {
+        Quarto quarto = quartoRepository.findByNumeroQuarto(numero);
+        quartoRepository.delete(quarto);
+
+        System.out.println("--=> delete: " + quarto);
+
+        return new RedirectView("index");
+    }
+
+    @PostMapping(path = "/all")
+    public @ResponseBody RedirectView Quarto(Model model) {
+        model.addAttribute("quartos", quartoRepository.findAll());
+
+        System.out.println("--=> all: " + model.getAttribute("quartos"));
+
+        return new RedirectView("index");
+    }
+
+}

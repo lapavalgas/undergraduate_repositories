@@ -1,0 +1,43 @@
+
+
+import java.sql.*
+
+
+o que iremos apresentar?
+
+iremos apresentar o pacote java.sql.*, dando um panorama geral do CRUD (create read update delete) em Java. 
+E apresentaremos as classes, interfaces e métodos importantes para estabelecer a conexão, o cadastro e leitura de dados.
+
+as classes e interfaces apresentadas serão:
+
+java.sql.DriverManager: responsavél em gerar a conexão com o driver proprietario.
+
+java.sql.PreparedStatement: responsavél em para preparar comandos sql, ou statements. Deriva da interface Statement.
+
+java.sql.Connection: responsavél para criar statements e gerenciar conexões e suas propriedades.
+
+java.sql.ResultSet: responsavél em armazenar os resultados de uma consulta SQL.
+
+os métodos apresentados serão:
+
+Class.forName("driver string"); 
+
+DriverManager.getConnection("url", "login", "senha"); : método utilizado para gerar um objeto do tipo Connection
+
+exemplo: Connection conexão = DriverManager.getConnection(url, login, senha);
+
+preparedStatement("string sql"); : método recebe uma String com comando SQL padrão e gera um objeto do tipo PreparedStatement.
+
+exemplo: PreparedStatement preparador = objetoConnection.prepareStatement("string sql"); 
+
+objetoPreparedStatement.execute(); : executa o comando SQL junto ao driver do banco de dados.
+objetoPreparedStatement.close(); : fecha a conexão com o banco de dados.
+objetoPreparedStatement.setString(int, string); : é capaz de subistituir '?' na string inicial por outros parametos, é usado para selecionar dados e registros especificos do banco dedados.
+objetoPreparedStatement.setInt(int, int); : idem, no entanto altera o '?' por um número, necessário pois no SQL nem tudo é considerado string/texto
+ 
+objetoPreparedStatement.executeQuery(); : é responsavél por gerar um objeto ResultSet que armazenará o resultado da consulta (seja uma tabela, um registro, um único dado, um erro ou mensagem bem sucessedida)
+
+exemplo: ResultSet resultados = objetoPreparedStatement.executeQuery();
+
+: após gerar um objeto ResultSet é necessário tratar os dados e organizar os dados para formar objetos das classes que representam.
+

@@ -1,0 +1,94 @@
+<section class="main">
+
+    <div class="rooms" th:each="reserva, iStat : ${session.RESERVAS}">
+        <fieldset>
+            <form action="ReservaCancela" method="POST">
+                <th:block th:switch="${reserva}">
+                    <th:block th:case="null">
+                    </th:block>
+                    <th:block th:case="*">
+                        <input type="hidden" name="idReserva" th:value="${reserva.reserva.id_reserva}">
+                    </th:block>
+                </th:block>
+
+                <ul class="list-group list-group-horizontal">
+
+                    <li class="list-group-item flex-fill">
+                        <div>
+                            <h4 style="text-align: right;">ROOM: <span th:text="${iStat.count}"></span></h4>
+                            <input type="hidden" name="quarto" th:value="${iStat.count}">
+                        </div>
+                        <div>
+                            <!-- <h4 style="text-align: right;">DATA: <span th:text="${session.DATE}"></span> </h4> -->
+                            <input type="hidden" name="date" th:value="${session.DATE}">
+                        </div>
+                    </li>
+
+                    <th:block th:switch="${reserva}">
+                        <th:block th:case="null">
+                            <li class="list-group-item flex-fill " style="width: 313px;">
+                                <input type="text" class="form-control" value="Nome hospede" style="margin-bottom: 5px;"
+                                    disabled>
+                                <input type="text" class="form-control" id="hospedeCpf"
+                                    placeholder="Ex.:   xxx.xxx.xxx-xx" autocomplete="off" name="customer['cpf']"
+                                    oninput="mascara(this, 'cpf')">
+                            </li>
+                        </th:block>
+                        <th:block th:case="*">
+                            <li class="list-group-item flex-fill " style="width: 313px;">
+                                <input type="text" class="form-control" th:value="${reserva.hospede.nome}"
+                                    style="margin-bottom: 5px;" disabled>
+                                <input type="text" class="form-control" id="hospedeCpf"
+                                    th:value="${reserva.hospede.cpf}" autocomplete="off" name="customer['cpf']"
+                                    oninput="mascara(this, 'cpf')" disabled>
+                            </li>
+                        </th:block>
+                    </th:block>
+
+                    <th:block th:switch="${reserva}">
+                        <th:block th:case="null">
+                            <li class="list-group-item flex-fill" style="width: 157px;">
+                                <input type="text" name="preco" class="form-control" placeholder="128.58   r$" value="">
+                            </li>
+                        </th:block>
+                        <th:block th:case="*">
+                            <li class="list-group-item flex-fill" style="width: 157px;">
+                                <input type="text" name="preco" class="form-control" placeholder=""
+                                    th:value="${reserva.reserva.preco}" disabled>
+                            </li>
+                        </th:block>
+                    </th:block>
+
+                    <th:block th:switch="${reserva}">
+                        <th:block th:case="null">
+                            <li class="list-group-item" style="border: none;">
+                                <button type="submit" name="CREATE" class="btn btn-success btn-lg"
+                                    style="width: 208px;">Reservar</button>
+                            </li>
+                        </th:block>
+                        <th:block th:case="*">
+                            <li class="list-group-item" style="border: none;">
+                                <button type="submit" name="UPDATE" class="btn btn-danger"
+                                    style="width: 208px;">Cancelar</button>
+                            </li>
+                        </th:block>
+                    </th:block>
+                </ul>
+            </form>
+        </fieldset>
+    </div>
+
+    <!-- data access -->
+    <!-- <div class="rooms" th:each="reserva, iStat : ${session.RESERVAS}">
+        <p style="border: 1px solid;" th:text="${iStat}"></p>
+        <p style="border: 1px solid;" th:text="${reserva}"></p>
+        <th:block th:each="reserva, iStat : ${reserva}">
+            <p style="border: 1px solid;" th:text="${reserva.reserva}"></p>
+            <p style="border: 1px solid;" th:text="${reserva.hospede}"></p>
+            <p style="border: 1px solid;" th:text="${reserva.quarto}"></p>
+        </th:block>
+    </div> -->
+    <!-- data access -->
+
+
+</section>

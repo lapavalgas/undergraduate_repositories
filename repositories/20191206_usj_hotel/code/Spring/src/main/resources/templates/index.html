@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <script th:src="@{/scripts.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+</head>
+
+<body>
+
+    <!-- url pattern -->
+    <!-- <a th:href="@{''(lang=de)}">Deutsch</a> -->
+    <!-- <a th:href="${#httpServletRequest.requestURI}">Deutsch</a> -->
+    <!-- insert ; no includes -->
+    <!-- <div th:insert="start"></div> -->
+    <!-- the iframe -->
+    <iframe th:src="@{/login.html}" frameborder="0" style="min-width: 100%; min-height: 100vh;"></iframe>
+
+</body>
+
+</html>
